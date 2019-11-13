@@ -6,7 +6,14 @@ import { render } from "react-dom";
 class StorePicker extends React.Component {
   //within the render we return some JSX
   render() {
-    return <p>Hello!</p>;
+    // return <p>Hello!</p>;
+    return (
+      <form className="store-selector">
+        <h2>Please Enter a Store</h2>
+        <input type="text" required placeholder="Store Name"></input>
+        <button type="submit">Visit Store &#8594;</button>
+      </form>
+    );
   }
 }
 
