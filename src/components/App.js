@@ -10,7 +10,7 @@ class App extends React.Component {
       <div className="catch-of-the-day">
         <div className="menu">
           {/* tagline will be passed down as props via this.props.tagline */}
-          <Header age="5000" tagline="Fresh Seafood Market" />
+          <Header tagline="Fresh Seafood Market" />
         </div>
         <Order />
         <Inventory />
