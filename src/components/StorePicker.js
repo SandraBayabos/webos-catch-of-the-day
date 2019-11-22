@@ -4,6 +4,8 @@ import { render } from "react-dom";
 // import the getFunName function from helpers
 import { getFunName } from "../helpers";
 
+import { PropTypes } from "prop-types";
+
 // this is a component & it needs at least one render() method
 class StorePicker extends React.Component {
   //create a method but it's OUTSIDE of the render(). Note: cannot use the "this" keyword outside of the render because it will NOT refer to the StorePicker component. Your methods are not BOUND to the class component, so you can use the constructor component instead (per example below) but we won't use it this time
@@ -20,7 +22,10 @@ class StorePicker extends React.Component {
     console.log("You changed the URL");
     //first grab text from the box.
     console.log(this.storeInput.value);
-    //transition from / to /store/:storeId
+    const storeId = this.storeInput.value;
+    //transition from / to /store/:storeId --> using React Router, which needs to be passed by the parent all the way down
+    //this won't work because transitionTo is no longer a function. Fuck.
+    this.context.router.transitionTo(`/store/${storeId}`);
   }
 
   //within the render we return some JSX
@@ -47,5 +52,9 @@ class StorePicker extends React.Component {
     );
   }
 }
+
+StorePicker.contextType = {
+  router: React.PropTypes.object
+};
 
 export default StorePicker;

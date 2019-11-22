@@ -16,6 +16,7 @@ import NotFound from "./components/NotFound";
 //create stateless functional component
 const Root = () => {
   return (
+    // BrowserRouter is the parent of EVERYTHING in our app
     <BrowserRouter>
       {/* Match cannot be a direct child of BrowserRouter so need to wrap in a <div> first */}
       <div>
